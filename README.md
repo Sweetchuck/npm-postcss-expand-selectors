@@ -19,7 +19,7 @@ d {
 }
 ```
 
-Comple the SCSS files with these options: `{ sourceComments: true, outputStyle: 'expanded' }`
+Compile the SCSS files with these options: `{ sourceComments: true, outputStyle: 'expanded' }`
 
 **CSS before**
 ```css
