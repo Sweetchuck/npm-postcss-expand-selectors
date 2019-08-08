@@ -3,18 +3,16 @@ const postCss = require('postcss');
 
 module.exports = postCss.plugin('postcss-expand-selectors', function () {
     return function (root) {
-        const getDebugComment = function (rule) {
+        function getDebugComment(rule) {
             const debugCommentRegexp = /^line \d+, .+$/;
             const comment = rule.prev();
 
             return comment &&
                 comment.type === 'comment' &&
-                debugCommentRegexp.test(comment.text) ?
-                comment :
-                null;
-        };
+                debugCommentRegexp.test(comment.text) ? comment : null;
+        }
 
-        const duplicateRule = function (rule, newSelector, debugComment) {
+        function duplicateRule(rule, newSelector, debugComment) {
             const prefix = rule.prev() ? '' : '\n';
             const ruleClone = rule.cloneAfter({
                 selectors: [prefix + newSelector]
@@ -25,7 +23,7 @@ module.exports = postCss.plugin('postcss-expand-selectors', function () {
                     .parent
                     .insertBefore(ruleClone, debugComment.clone());
             }
-        };
+        }
 
         root.walkRules(function (rule) {
             if (rule.selectors.length < 2) {
@@ -36,8 +34,8 @@ module.exports = postCss.plugin('postcss-expand-selectors', function () {
             rule.selectors = [selectors.shift()];
 
             const debugComment = getDebugComment(rule);
-            for (let selectorIndex in selectors.reverse()) {
-                if (selectors.hasOwnProperty(selectorIndex)) {
+            for (const selectorIndex in selectors.reverse()) {
+                if (Object.prototype.hasOwnProperty.call(selectors, selectorIndex)) {
                     duplicateRule(rule, selectors[selectorIndex], debugComment);
                 }
             }

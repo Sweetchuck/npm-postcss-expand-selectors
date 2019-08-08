@@ -1,15 +1,15 @@
 'use strict';
 
-let postCss = require('postcss');
+const postCss = require('postcss');
 
-let plugin = require('./');
+const plugin = require('./');
 
 function run(input, output, opts) {
     return postCss([plugin(opts)])
         .process(input)
         .then(result => {
             expect(result.css).toEqual(output);
-            expect(result.warnings().length).toBe(0);
+            expect(result.warnings()).toHaveLength(0);
         });
 }
 
