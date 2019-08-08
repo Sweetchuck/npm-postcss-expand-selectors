@@ -2,5 +2,28 @@
   "extends": "eslint-config-postcss/es5",
   "env": {
     "jest": true
+  },
+  "rules": {
+    "indent": ["error", 4],
+    "max-len": ["error", 120],
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
+    "prefer-let/prefer-let": 0,
+    "es5/no-block-scoping": 0,
+    "func-style": ["error", "declaration"],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "never"
+      }
+    ],
+    "semi": ["error", "always"]
   }
 }
