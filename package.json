@@ -1,44 +1,45 @@
 {
-  "name": "postcss-expand-selectors",
-  "version": "0.0.0",
-  "description": "PostCSS plugin expand comma separated selectors into individual rules",
-  "keywords": [
-    "postcss",
-    "css",
-    "postcss-plugin",
-    "unused"
-  ],
-  "author": "Andor <andor.david@cheppers.com>",
-  "license": "MIT",
-  "repository": "Cheppers/postcss-expand-selectors",
-  "bugs": {
-    "url": "https://github.com/Cheppers/postcss-expand-selectors/issues"
-  },
-  "homepage": "https://github.com/Cheppers/postcss-expand-selectors",
-  "dependencies": {
-    "postcss": "^7.0.17"
-  },
-  "devDependencies": {
-    "@logux/eslint-config": "^30.0.2",
-    "eslint": "^6.1.0",
-    "eslint-config-postcss": "^3.0.7",
-    "eslint-config-standard": "^13.0.1",
-    "eslint-plugin-es5": "^1.4.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.15.0",
-    "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-prefer-let": "^1.0.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-security": "^1.4.0",
-    "eslint-plugin-standard": "^4.0.0",
-    "jest": "^24.8.0"
-  },
-  "main": "index.js",
-  "files": [
-    "index.js"
-  ],
-  "scripts": {
-    "lint": "eslint *.js",
-    "test": "jest"
-  }
+    "name": "postcss-expand-selectors",
+    "version": "0.0.0",
+    "description": "PostCSS plugin expand comma separated selectors into individual rules",
+    "keywords": [
+        "postcss",
+        "css",
+        "postcss-plugin",
+        "unused"
+    ],
+    "author": "Andor <andor.david@cheppers.com>",
+    "license": "MIT",
+    "repository": "Cheppers/postcss-expand-selectors",
+    "bugs": {
+        "url": "https://github.com/Cheppers/postcss-expand-selectors/issues"
+    },
+    "homepage": "https://github.com/Cheppers/postcss-expand-selectors",
+    "dependencies": {
+        "postcss": "^7.0.17"
+    },
+    "devDependencies": {
+        "@logux/eslint-config": "^36.0.2",
+        "eslint": "^6.1.0",
+        "eslint-config-postcss": "^4.0.0",
+        "eslint-config-standard": "^14.1.0",
+        "eslint-plugin-es5": "^1.5.0",
+        "eslint-plugin-import": "^2.20.0",
+        "eslint-plugin-jest": "^23.8.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prefer-let": "^1.0.1",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-security": "^1.4.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "eslint-plugin-unicorn": "^18.0.1",
+        "jest": "^25.0.0"
+    },
+    "main": "index.js",
+    "files": [
+        "index.js"
+    ],
+    "scripts": {
+        "lint": "eslint *.js",
+        "test": "jest"
+    }
 }

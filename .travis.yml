@@ -1,23 +1,22 @@
-
 language: 'node_js'
 
 cache: 'yarn'
 
 node_js:
-  - '12'
+    - '12'
 
 before_install:
-  - 'export YARN_IGNORE_ENGINES=true'
+    - 'export YARN_IGNORE_ENGINES=true'
 
 install:
-  - 'yarn install'
+    - 'yarn install'
 
 script:
-  - 'yarn run lint'
-  - 'yarn run test'
+    - 'yarn run lint'
+    - 'yarn run test'
 
 after_success:
-  - 'bash <(curl -s https://codecov.io/bash)'
+    - 'bash <(curl -s https://codecov.io/bash)'
 
 notifications:
-  email: false
+    email: false

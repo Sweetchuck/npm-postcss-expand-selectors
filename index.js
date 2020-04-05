@@ -1,7 +1,7 @@
 
 const postCss = require('postcss');
 
-module.exports = postCss.plugin('postcss-expand-selectors', function () {
+module.exports = postCss.plugin('postcss-expand-selectors', () => {
     return function (root) {
         function getDebugComment(rule) {
             const debugCommentRegexp = /^line \d+, .+$/;
@@ -25,7 +25,7 @@ module.exports = postCss.plugin('postcss-expand-selectors', function () {
             }
         }
 
-        root.walkRules(function (rule) {
+        root.walkRules(rule => {
             if (rule.selectors.length < 2) {
                 return;
             }
