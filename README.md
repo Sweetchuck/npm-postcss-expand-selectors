@@ -1,6 +1,8 @@
 
 # PostCSS Expand Selectors
 
+[![Build Status](https://travis-ci.org/Cheppers/postcss-expand-selectors.svg?branch=master)](https://travis-ci.org/Cheppers/postcss-expand-selectors)
+
 [PostCSS] plugin to expand comma separated selectors into individual rules.
 
 **SCSS source**
@@ -74,5 +76,5 @@ If there are no somma separated selectors in a rule then you can get a
 more accurate CSS coverage report from Google Chrome with Puppeteer.
 
 So use this plugin only when you prepare your application for CSS coverage
-generatation with Google Chrome, but do not use this plugin when you create 
+generatation with Google Chrome, but do not use this plugin when you create
 production release.
