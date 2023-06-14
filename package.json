@@ -8,13 +8,13 @@
         "postcss-plugin",
         "unused"
     ],
-    "author": "Andor <andor.david@cheppers.com>",
+    "author": "Andor <david-andor@kozpontiagy.hu>",
     "license": "MIT",
-    "repository": "Cheppers/postcss-expand-selectors",
+    "repository": "Sweetchuck/npm-postcss-expand-selectors",
     "bugs": {
-        "url": "https://github.com/Cheppers/postcss-expand-selectors/issues"
+        "url": "https://github.com/Sweetchuck/npm-postcss-expand-selectors/issues"
     },
-    "homepage": "https://github.com/Cheppers/postcss-expand-selectors",
+    "homepage": "https://github.com/Sweetchuck/npm-postcss-expand-selectors",
     "dependencies": {
         "postcss": "^7.0.17"
     },
