@@ -1,7 +1,8 @@
-
 # PostCSS Expand Selectors
 
-[![Build Status](https://travis-ci.org/Cheppers/postcss-expand-selectors.svg?branch=master)](https://travis-ci.org/Cheppers/postcss-expand-selectors)
+[![CircleCI](https://circleci.com/gh/Sweetchuck/npm-postcss-expand-selectors/tree/1.x.svg?style=svg)](https://circleci.com/gh/Sweetchuck/npm-postcss-expand-selectors/?branch=1.x)
+[![codecov](https://codecov.io/gh/Sweetchuck/npm-postcss-expand-selectors/branch/1.x/graph/badge.svg?token=HSF16OGPyr)](https://app.codecov.io/gh/Sweetchuck/npm-postcss-expand-selectors/branch/1.x)
+
 
 [PostCSS] plugin to expand comma separated selectors into individual rules.
 
@@ -72,9 +73,11 @@ d {
 
 ## When to use this plugin
 
-If there are no somma separated selectors in a rule then you can get a
+If there are no comma separated selectors in a rule then you can get a
 more accurate CSS coverage report from Google Chrome with Puppeteer.
 
 So use this plugin only when you prepare your application for CSS coverage
-generatation with Google Chrome, but do not use this plugin when you create
+generation with Google Chrome, but do not use this plugin when you create
 production release.
+
+[PostCSS]: https://postcss.org/
