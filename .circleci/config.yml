@@ -1,0 +1,109 @@
+
+version: 2.1
+
+orbs:
+    codecov: 'codecov/codecov@3.2.4'
+
+executors:
+    node_min:
+        resource_class: 'small'
+        docker:
+            -
+                name: 'main'
+                image: 'cimg/node:12.13.1'
+
+    node_plus1:
+        resource_class: 'small'
+        docker:
+            -
+                name: 'main'
+                image: 'cimg/node:18.16.0'
+
+commands:
+    yarn_install:
+        description: 'Install Yarn dependencies with cache restore and save'
+        steps:
+            -
+                restore_cache:
+                    name: 'Yarn install - cache restore'
+                    keys:
+                        - 'yarn-{{ checksum "./yarn.lock" }}-1'
+            -
+                run:
+                    name: 'Yarn install - do it'
+                    command: |
+                        yarn install
+            -
+                save_cache:
+                    name: 'Yarn install - Cache save'
+                    key: 'yarn-{{ checksum "./yarn.lock" }}-1'
+                    paths:
+                        - '~/.cache/yarn/'
+
+    lint:
+        description: 'Run linters'
+        steps:
+            -
+                run:
+                    name: 'Run linters'
+                    command: |
+                        yarn lint
+
+    test:
+        description: 'Run tests'
+        steps:
+            -
+                run:
+                    name: 'Run tests - unit'
+                    command: |
+                        yarn test
+            -
+                codecov/upload:
+                    flags: 'unit'
+                    file: './log/coverage/coverage-final.json'
+#            -
+#                store_test_results:
+#                    name: 'Store test results'
+#                    path: './log/?'
+
+jobs:
+    build:
+        executor: 'node_min'
+        steps:
+            - 'checkout'
+            - 'yarn_install'
+    lint:
+        executor: 'node_min'
+        steps:
+            - 'checkout'
+            - 'yarn_install'
+            - 'lint'
+    test:
+        parameters:
+            executor:
+                type: 'string'
+        executor: '<<parameters.executor>>'
+        steps:
+            - 'checkout'
+            - 'yarn_install'
+            - 'test'
+
+workflows:
+    lint_and_test:
+        jobs:
+            -
+                build: {}
+            -
+                lint:
+                    requires:
+                        - 'build'
+            -
+                test:
+                    name: 'test_<<matrix.executor>>'
+                    requires:
+                        - 'build'
+                    matrix:
+                        parameters:
+                            executor:
+                                - 'node_min'
+#                                - 'node_plus1'
