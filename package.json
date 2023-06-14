@@ -15,24 +15,26 @@
         "url": "https://github.com/Sweetchuck/npm-postcss-expand-selectors/issues"
     },
     "homepage": "https://github.com/Sweetchuck/npm-postcss-expand-selectors",
-    "dependencies": {
-        "postcss": "^7.0.17"
+    "peerDependencies": {
+        "postcss": "^8.4.24"
     },
     "devDependencies": {
-        "@logux/eslint-config": "^36.0.2",
-        "eslint": "^6.1.0",
+        "@logux/eslint-config": ">=36.0.0",
+        "eslint": "^8.42.0",
         "eslint-config-postcss": "^4.0.0",
-        "eslint-config-standard": "^14.1.0",
+        "eslint-config-standard": "^17.1.0",
         "eslint-plugin-es5": "^1.5.0",
-        "eslint-plugin-import": "^2.20.0",
-        "eslint-plugin-jest": "^23.8.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-jest": "^27.2.1",
+        "eslint-plugin-n": "^16.0.0",
         "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-prefer-let": "^1.0.1",
-        "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-security": "^1.4.0",
-        "eslint-plugin-standard": "^4.0.0",
-        "eslint-plugin-unicorn": "^18.0.1",
-        "jest": "^25.0.0"
+        "eslint-plugin-perfectionist": "^1.1.0",
+        "eslint-plugin-prefer-let": "^3.0.1",
+        "eslint-plugin-promise": "^6.1.1",
+        "eslint-plugin-security": "^1.7.1",
+        "eslint-plugin-unicorn": "^47.0.0",
+        "jest": "^29.0.0",
+        "postcss": "^8.4.24"
     },
     "main": "index.js",
     "files": [

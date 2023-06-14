@@ -1,7 +1,7 @@
 # PostCSS Expand Selectors
 
-[![CircleCI](https://circleci.com/gh/Sweetchuck/npm-postcss-expand-selectors/tree/1.x.svg?style=svg)](https://circleci.com/gh/Sweetchuck/npm-postcss-expand-selectors/?branch=1.x)
-[![codecov](https://codecov.io/gh/Sweetchuck/npm-postcss-expand-selectors/branch/1.x/graph/badge.svg?token=HSF16OGPyr)](https://app.codecov.io/gh/Sweetchuck/npm-postcss-expand-selectors/branch/1.x)
+[![CircleCI](https://circleci.com/gh/Sweetchuck/npm-postcss-expand-selectors/tree/2.x.svg?style=svg)](https://circleci.com/gh/Sweetchuck/npm-postcss-expand-selectors/?branch=2.x)
+[![codecov](https://codecov.io/gh/Sweetchuck/npm-postcss-expand-selectors/branch/2.x/graph/badge.svg?token=HSF16OGPyr)](https://app.codecov.io/gh/Sweetchuck/npm-postcss-expand-selectors/branch/2.x)
 
 
 [PostCSS] plugin to expand comma separated selectors into individual rules.

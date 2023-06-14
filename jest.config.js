@@ -3,9 +3,11 @@ module.exports = {
     testEnvironment: 'node',
     verbose: true,
     testRegex: '\\.test\\.js$',
+
     moduleFileExtensions: [
         'js'
     ],
+
     collectCoverage: true,
     collectCoverageFrom: [
         'index.js'
@@ -15,5 +17,5 @@ module.exports = {
         'html',
         'json',
         'lcov'
-    ]
+    ],
 };

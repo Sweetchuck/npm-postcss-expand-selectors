@@ -19,12 +19,10 @@
                 "ignoreReadBeforeAssign": false
             }
         ],
+        "perfectionist/sort-objects": 0,
         "prefer-let/prefer-let": 0,
         "es5/no-block-scoping": 0,
-        "func-style": [
-            "error",
-            "declaration"
-        ],
+        "func-style": 0,
         "space-before-function-paren": [
             "error",
             {

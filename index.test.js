@@ -10,7 +10,7 @@ const plugin = require('./');
  * @param {string} input
  * @param {string} expected
  *
- * @return {Promise<postcss.Result>}
+ * @return {Promise<Result>}
  */
 function run(pluginOptions, input, processOptions, expected) {
     if (!Object.prototype.hasOwnProperty.call(processOptions, 'from')) {

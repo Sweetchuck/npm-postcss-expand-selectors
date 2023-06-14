@@ -10,14 +10,14 @@ executors:
         docker:
             -
                 name: 'main'
-                image: 'cimg/node:12.13.1'
+                image: 'cimg/node:18.16'
 
     node_plus1:
         resource_class: 'small'
         docker:
             -
                 name: 'main'
-                image: 'cimg/node:18.16.0'
+                image: 'cimg/node:20.2'
 
 commands:
     yarn_install:
@@ -106,4 +106,4 @@ workflows:
                         parameters:
                             executor:
                                 - 'node_min'
-#                                - 'node_plus1'
+                                - 'node_plus1'
