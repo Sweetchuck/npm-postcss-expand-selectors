@@ -4,11 +4,23 @@ const postCss = require('postcss');
 
 const plugin = require('./');
 
-function run(input, output, opts) {
-    return postCss([plugin(opts)])
-        .process(input)
+/**
+ * @param {Object} pluginOptions
+ * @param {Object} processOptions
+ * @param {string} input
+ * @param {string} expected
+ *
+ * @return {Promise<postcss.Result>}
+ */
+function run(pluginOptions, input, processOptions, expected) {
+    if (!Object.prototype.hasOwnProperty.call(processOptions, 'from')) {
+        processOptions.from = undefined;
+    }
+
+    return postCss([plugin(pluginOptions)])
+        .process(input, processOptions)
         .then(result => {
-            expect(result.css).toEqual(output);
+            expect(result.css).toEqual(expected);
             expect(result.warnings()).toHaveLength(0);
         });
 }
@@ -30,7 +42,7 @@ it('without any comment; only rule', () => {
         '}'
     ].join('\n');
 
-    return run(input, expected, {});
+    return run({}, input, {}, expected);
 });
 
 it('without any comment; first rule', () => {
@@ -56,7 +68,7 @@ it('without any comment; first rule', () => {
         '}'
     ].join('\n');
 
-    return run(input, expected, {});
+    return run({}, input, {}, expected);
 });
 
 it('without any comment; last rule', () => {
@@ -82,7 +94,7 @@ it('without any comment; last rule', () => {
         '}'
     ].join('\n');
 
-    return run(input, expected, {});
+    return run({}, input, {}, expected);
 });
 
 it('with debug comment; only rule', () => {
@@ -105,7 +117,7 @@ it('with debug comment; only rule', () => {
         '}'
     ].join('\n');
 
-    return run(input, expected, {});
+    return run({}, input, {}, expected);
 });
 
 it('with debug comment; first rule', () => {
@@ -134,7 +146,7 @@ it('with debug comment; first rule', () => {
         '}'
     ].join('\n');
 
-    return run(input, expected, {});
+    return run({}, input, {}, expected);
 });
 
 it('with debug comment; last rule', () => {
@@ -163,7 +175,7 @@ it('with debug comment; last rule', () => {
         '}'
     ].join('\n');
 
-    return run(input, expected, {});
+    return run({}, input, {}, expected);
 });
 
 it('with regular comment; only rule', () => {
@@ -185,7 +197,7 @@ it('with regular comment; only rule', () => {
         '}'
     ].join('\n');
 
-    return run(input, expected, {});
+    return run({}, input, {}, expected);
 });
 
 it('with regular comment; first rule', () => {
@@ -213,7 +225,7 @@ it('with regular comment; first rule', () => {
         '}'
     ].join('\n');
 
-    return run(input, expected, {});
+    return run({}, input, {}, expected);
 });
 
 it('with regular comment; last rule', () => {
@@ -241,7 +253,7 @@ it('with regular comment; last rule', () => {
         '}'
     ].join('\n');
 
-    return run(input, expected, {});
+    return run({}, input, {}, expected);
 });
 
 it('four selectors', () => {
@@ -269,5 +281,5 @@ it('four selectors', () => {
         '}'
     ].join('\n');
 
-    return run(input, expected, {});
+    return run({}, input, {}, expected);
 });
