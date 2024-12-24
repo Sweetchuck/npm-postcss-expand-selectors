@@ -1,8 +1,7 @@
-
 version: 2.1
 
 orbs:
-    codecov: 'codecov/codecov@3.2.4'
+    codecov: 'codecov/codecov@5'
 
 executors:
     node_min:
@@ -10,14 +9,35 @@ executors:
         docker:
             -
                 name: 'main'
-                image: 'cimg/node:18.16'
+                image: 'cimg/node:18.20'
 
     node_plus1:
         resource_class: 'small'
         docker:
             -
                 name: 'main'
-                image: 'cimg/node:20.2'
+                image: 'cimg/node:20.18'
+
+    node_plus2:
+        resource_class: 'small'
+        docker:
+            -
+                name: 'main'
+                image: 'cimg/node:21.7'
+
+    node_plus3:
+        resource_class: 'small'
+        docker:
+            -
+                name: 'main'
+                image: 'cimg/node:22.12'
+
+    node_plus4:
+        resource_class: 'small'
+        docker:
+            -
+                name: 'main'
+                image: 'cimg/node:23.5'
 
 commands:
     yarn_install:
@@ -60,11 +80,8 @@ commands:
             -
                 codecov/upload:
                     flags: 'unit'
-                    file: './log/coverage/coverage-final.json'
-#            -
-#                store_test_results:
-#                    name: 'Store test results'
-#                    path: './log/?'
+                    disable_search: true
+                    files: './log/coverage/coverage-final.json'
 
 jobs:
     build:
@@ -107,3 +124,6 @@ workflows:
                             executor:
                                 - 'node_min'
                                 - 'node_plus1'
+                                - 'node_plus2'
+                                - 'node_plus3'
+                                - 'node_plus4'

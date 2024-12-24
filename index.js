@@ -7,13 +7,17 @@ const plugin = () => {
                 const debugCommentRegexp = /^line \d+, .+$/;
                 const comment = rule.prev();
 
-                return comment &&
-                comment.type === 'comment' &&
-                debugCommentRegexp.test(comment.text) ? comment : null;
+                return comment
+                    && comment.type === 'comment'
+                    && debugCommentRegexp.test(comment.text)
+                    ? comment
+                    : null;
             }
 
             function duplicateRule(rule, newSelector, debugComment) {
-                const prefix = rule.prev() ? '' : '\n';
+                const prefix = rule.prev()
+                    ? ''
+                    : '\n';
                 const ruleClone = rule.cloneAfter({
                     selectors: [prefix + newSelector]
                 });
