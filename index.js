@@ -23,9 +23,15 @@ const plugin = () => {
                 });
 
                 if (debugComment) {
+                    const debugCommentClone = debugComment.clone({
+                        raws: {
+                            ...debugComment.raws,
+                            before: '\n',
+                        },
+                    });
                     ruleClone
                         .parent
-                        .insertBefore(ruleClone, debugComment.clone());
+                        .insertBefore(ruleClone, debugCommentClone);
                 }
             }
 
